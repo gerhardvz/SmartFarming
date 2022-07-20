@@ -1,0 +1,6 @@
+[submodule "SmartFarming-MachineLearning"]
+	path = SmartFarming-MachineLearning
+	url = https://github.com/gerhardvz/SmartFarming-MachineLearning.git
+[submodule "SmartFarming-API"]
+	path = SmartFarming-API
+	url = https://github.com/gerhardvz/SmartFarming-API
