@@ -1,0 +1,53 @@
+version: '3'
+
+services:
+  nginx-proxy:
+    image: nginx:1.21
+    container_name: nginx-proxy
+    restart: always
+    depends_on:
+      -   smartfarming-api
+      -   smartfarming-dash
+    volumes:
+      - /docker/smartfarming/nginx/etc/nginx/conf.d:/etc/nginx/conf.d:z
+      - /docker/smartfarming/nginx/var/log/nginx:/var/log/nginx:z
+      - /etc/localtime:/etc/localtime:z
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      -   smartfarming-network
+
+
+  smartfarming-api:
+
+    restart: always
+    build: './SmartFarming-API'
+    #    command: sh -c "tail -f /dev/null"
+    container_name: smartfarming-api
+
+    volumes:
+      - /etc/localtime:/etc/localtime:z
+#    ports:
+#      - "8080:8080"
+    networks:
+      - smartfarming-network
+
+
+  smartfarming-dash:
+    build: './SmartFarming-Dashboard'
+    container_name:   smartfarming-dash
+    restart: always
+    #    ports:
+    #     - "3000:3000"
+    #    command: "npm run start"
+    #    volumes:
+    #    - /etc/localtime:/etc/localtime:z
+    networks:
+      -   smartfarming-network
+
+
+
+networks:
+  smartfarming-network:
+    driver: bridge
