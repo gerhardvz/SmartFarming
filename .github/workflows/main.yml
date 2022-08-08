@@ -1,0 +1,32 @@
+# This workflow will install Python dependencies, run tests and lint with a single version of Python
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+
+name: DeployNewReleaseToRaspPi
+
+on:
+  release:
+    types: [ published ]
+
+permissions:
+  contents: read
+
+jobs:
+  build-docker:
+
+    runs-on: self-hosted
+
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        submodules: recursive
+    - name: Update Submodules to Latest Release
+      run: git submodule update --recursive --remote --no-fetch
+          
+    - name: Build Docker Image
+      run: |-
+          docker-compose build 
+          docker-compose up
+          
+   # END - Docker auth and build 
+   
+          
