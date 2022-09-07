@@ -4,7 +4,7 @@
 	branch = release
 [submodule "SmartFarming-API"]
 	path = SmartFarming-API
-	url = https://github.com/gerhardvz/SmartFarming-API
+	url = git@github.com:gerhardvz/SmartFarming-API.git
 	branch = release
 [submodule "SmartFarming-Dashboard"]
 	path = SmartFarming-Dashboard
