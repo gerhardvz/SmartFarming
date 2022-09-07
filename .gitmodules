@@ -1,6 +1,6 @@
 [submodule "SmartFarming-MachineLearning"]
 	path = SmartFarming-MachineLearning
-	url = https://github.com/gerhardvz/SmartFarming-MachineLearning.git
+	url = git@github.com:gerhardvz/SmartFarming-MachineLearning.git
 	branch = release
 [submodule "SmartFarming-API"]
 	path = SmartFarming-API
@@ -8,5 +8,5 @@
 	branch = release
 [submodule "SmartFarming-Dashboard"]
 	path = SmartFarming-Dashboard
-	url = https://github.com/gerhardvz/Smart-Farming-Dashboard
+	url = git@github.com:gerhardvz/Smart-Farming-Dashboard.git
 	branch = release
